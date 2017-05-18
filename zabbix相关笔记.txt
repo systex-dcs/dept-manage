@@ -1,3 +1,4 @@
+12
 OS: CentOS 7.2
 
 1、安装xampp集群环境
