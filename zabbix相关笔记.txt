@@ -1,16 +1,17 @@
+12
 OS: CentOS 7.2
 
-1¡¢°²×°xampp¼¯Èº»·¾³
-1.1¹Ù·½ÏÂÔØµØÖ·
+1ã€å®‰è£…xamppé›†ç¾¤ç¯å¢ƒ
+1.1å®˜æ–¹ä¸‹è½½åœ°å€
 https://www.apachefriends.org/download.html
 
-Ñ¡Ôñxampp for linux£¬7.1.4 / PHP 7.1.4
-ÏÂÔØÎÄ¼şÎªxampp-linux-x64-7.1.4-0-installer.run
+é€‰æ‹©xampp for linuxï¼Œ7.1.4 / PHP 7.1.4
+ä¸‹è½½æ–‡ä»¶ä¸ºxampp-linux-x64-7.1.4-0-installer.run
 
-1.2°²×°xampp¼¯Èº»·¾³Èí¼ş
-1)Ö´ĞĞÈ¨ÏŞÊÚÈ¨£º
+1.2å®‰è£…xamppé›†ç¾¤ç¯å¢ƒè½¯ä»¶
+1)æ‰§è¡Œæƒé™æˆæƒï¼š
 chmod +x xampp-linux-x64-7.1.4-0-installer.run
-2)°²×°xampp
+2)å®‰è£…xampp
 [root@monitor tools]# ./xampp-linux-x64-7.1.4-0-installer.run 
 ----------------------------------------------------------------------------
 Welcome to the XAMPP Setup Wizard.
@@ -43,18 +44,18 @@ Please wait while Setup installs XAMPP on your computer.
 ----------------------------------------------------------------------------
 Setup has finished installing XAMPP on your computer.
 
-3£©ĞŞ¶©Ïà¹ØÄÚÈİ
-3.1)ÒÆ¶¯°²×°Ä¬ÈÏÄ¿Â¼µ½ÖÆ¶¨Ä¿Â¼
+3ï¼‰ä¿®è®¢ç›¸å…³å†…å®¹
+3.1)ç§»åŠ¨å®‰è£…é»˜è®¤ç›®å½•åˆ°åˆ¶å®šç›®å½•
 mv /opt/lampp/* /systex/monitor/envsoft
-3.2)É¾³ıÊ§Ğ§ÈíÁ¬½Ó
+3.2)åˆ é™¤å¤±æ•ˆè½¯è¿æ¥
 rm -f lampp 
-3.3)ĞŞ¸ÄXAMPP_ROOTÄ¿Â¼
---²é¿´
+3.3)ä¿®æ”¹XAMPP_ROOTç›®å½•
+--æŸ¥çœ‹
 sed -e 's#XAMPP_ROOT="/opt/lampp"#XAMPP_ROOT="/systex/monitor/envsoft"#g' /systex/monitor/envsoft/xampp | grep "XAMPP_ROOT="
---ĞŞ¸Ä
+--ä¿®æ”¹
 sed -i 's#XAMPP_ROOT="/opt/lampp"#XAMPP_ROOT="/systex/monitor/envsoft"#g' /systex/monitor/envsoft/xampp
 
-3.4)Ôö¼ÓÏà¹Ø»·¾³±äÁ¿
+3.4)å¢åŠ ç›¸å…³ç¯å¢ƒå˜é‡
 ~/.bash_profile
 export ENVSOFT=/systex/monitor/envsoft
 PATH=$PATH:$HOME/bin:$ENVSOFT/bin:$ENVSOFT
