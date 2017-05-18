@@ -1,0 +1,113 @@
+OS: CentOS 7.2
+
+1、安装xampp集群环境
+1.1官方下载地址
+https://www.apachefriends.org/download.html
+
+选择xampp for linux，7.1.4 / PHP 7.1.4
+下载文件为xampp-linux-x64-7.1.4-0-installer.run
+
+1.2安装xampp集群环境软件
+1)执行权限授权：
+chmod +x xampp-linux-x64-7.1.4-0-installer.run
+2)安装xampp
+[root@monitor tools]# ./xampp-linux-x64-7.1.4-0-installer.run 
+----------------------------------------------------------------------------
+Welcome to the XAMPP Setup Wizard.
+----------------------------------------------------------------------------
+Select the components you want to install; clear the components you do not want 
+to install. Click Next when you are ready to continue.
+
+XAMPP Core Files [y/N] : y
+
+XAMPP Developer Files [Y/n] :y
+
+Is the selection above correct? [Y/n]: y
+
+----------------------------------------------------------------------------
+Installation Directory
+
+XAMPP will be installed to /opt/lampp
+Press [Enter] to continue: 
+----------------------------------------------------------------------------
+Setup is now ready to begin installing XAMPP on your computer.
+
+Do you want to continue? [Y/n]: y
+----------------------------------------------------------------------------
+Please wait while Setup installs XAMPP on your computer.
+
+ Installing
+ 0% ______________ 50% ______________ 100%
+ #########################################
+
+----------------------------------------------------------------------------
+Setup has finished installing XAMPP on your computer.
+
+3）修订相关内容
+3.1)移动安装默认目录到制定目录
+mv /opt/lampp/* /systex/monitor/envsoft
+3.2)删除失效软连接
+rm -f lampp 
+3.3)修改XAMPP_ROOT目录
+--查看
+sed -e 's#XAMPP_ROOT="/opt/lampp"#XAMPP_ROOT="/systex/monitor/envsoft"#g' /systex/monitor/envsoft/xampp | grep "XAMPP_ROOT="
+--修改
+sed -i 's#XAMPP_ROOT="/opt/lampp"#XAMPP_ROOT="/systex/monitor/envsoft"#g' /systex/monitor/envsoft/xampp
+
+3.4)增加相关环境变量
+~/.bash_profile
+export ENVSOFT=/systex/monitor/envsoft
+PATH=$PATH:$HOME/bin:$ENVSOFT/bin:$ENVSOFT
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$ENVSOFT/lib
+
+./configure --enable-server --enable-agent --with-mysql --enable-ipv6 --with-net-snmp --with-libcurl --with-libxml2 --with-unixodbc --with-ssh2 --with-openipmi --with-openssl
+
+
+
+
+------------------------------------------------------------------------------
+
+***************Welcome Use Systex Dcs Monitor Setup Wizard.*******************
+
+------------------------------------------------------------------------------
+
+Please Input Environment Manage Directory (Default /systex/monitor/env): 
+
+------------------------------------------------------------------------------
+
+Environment Manage Directory is /systex/monitor/env
+
+----------------------------------------------------------------------------
+Welcome to the XAMPP Setup Wizard.
+
+----------------------------------------------------------------------------
+Select the components you want to install; clear the components you do not want 
+to install. Click Next when you are ready to continue.
+
+XAMPP Core Files [y/N] : 
+XAMPP Developer Files [Y/n] :
+Is the selection above correct? [Y/n]: 
+----------------------------------------------------------------------------
+Installation Directory
+
+XAMPP will be installed to /opt/lampp
+Press [Enter] to continue:
+----------------------------------------------------------------------------
+Setup is now ready to begin installing XAMPP on your computer.
+
+Do you want to continue? [Y/n]: 
+----------------------------------------------------------------------------
+Please wait while Setup installs XAMPP on your computer.
+
+ Installing
+ 0% ______________ 50% ______________ 100%
+ #########################################
+
+----------------------------------------------------------------------------
+Setup has finished installing XAMPP on your computer.
+
+
+
+------------------------------------------------------------------------------
+
+Setting The Environment
